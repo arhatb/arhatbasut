@@ -1,5 +1,6 @@
-
-/* Temel Ayarlar ve Yazı Tipleri */
+/* ========================================= */
+/* 1. GENEL SIFIRLAMALAR VE FONTLAR */
+/* ========================================= */
 *,
 *::before,
 *::after {
@@ -12,29 +13,67 @@ body {
     background-color: #1a1a2e;
     color: #e0e0e0;
     font-family: 'Roboto Mono', monospace;
-    overflow-x: hidden;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Yatay kaydırmayı engeller */
 }
 
-/* Gezinme Çubuğu (Navbar) */
+a {
+    color: #00bcd4;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff9800;
+}
+
+/* Evrensel: Resimlerin Ekrandan Taşmasını Engeller */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ana İçerik Konteyneri */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Başlıklar */
+h1 { font-size: 48px; font-weight: 700; line-height: 1.2; }
+h2 { font-size: 36px; font-weight: 700; }
+h3 { font-size: 20px; }
+
+.highlight {
+    color: #00bcd4;
+}
+
+/* ========================================= */
+/* 2. HEADER ve SABİT NAVİGASYON */
+/* ========================================= */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
+    position: sticky; /* Sabit Menü */
+    top: 0;
+    z-index: 1000;
+    background-color: #1a1a2e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .logo {
     font-size: 45px;
     font-weight: bold;
     color: #6a1b9a;
-    text-decoration: none;
 }
 
 nav a {
     color: #bdbdbd;
-    text-decoration: none;
     margin-left: 25px;
-    transition: color 0.3s;
 }
 
 nav a:hover {
@@ -47,14 +86,9 @@ nav a:hover {
     cursor: pointer;
 }
 
-/* Ana İçerik ve Düzen */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Ana Sayfa Bölümü (Hero) */
+/* ========================================= */
+/* 3. HERO SECTION (ANA BÖLÜM) */
+/* ========================================= */
 .hero-section {
     display: flex;
     justify-content: space-between;
@@ -67,14 +101,22 @@ nav a:hover {
     padding-right: 50px;
 }
 
-h1 {
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 1.2;
+.content-right {
+    flex: 1;
+    text-align: right;
 }
 
-.highlight {
-    color: #00bcd4;
+.content-right img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.image-caption {
+    font-style: italic;
+    color: #9e9e9e;
+    margin-top: 10px;
 }
 
 .btn-contact {
@@ -82,7 +124,6 @@ h1 {
     padding: 12px 25px;
     border: 2px solid #00bcd4;
     color: #00bcd4;
-    text-decoration: none;
     margin-top: 20px;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -92,68 +133,54 @@ h1 {
     color: #1a1a2e;
 }
 
-.content-right {
-    flex: 1;
-    text-align: right;
-}
 
-.content-right img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover; /* Bu özellik, resmi bozulmadan belirlediğiniz alana sığdırır */
-    border-radius: 50%; /* Dilerseniz resmi yuvarlak hale getirebilirsiniz */
-}
-
-.image-caption {
-    font-style: italic;
-    color: #9e9e9e;
-    margin-top: 10px;
-}
-
-/* Projeler Bölümü */
-.projects-section {
+/* ========================================= */
+/* 4. SECTIONS (PROJELER, STATS, EXPERIENCE) */
+/* ========================================= */
+.projects-section, .stats-section, .experience-section, .contact-section {
     padding: 100px 0;
 }
 
-.projects-header {
+/* Bölüm Başlıkları için Ortak Stil */
+.projects-header, .stats-header, .experience-header, .contact-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
     margin-bottom: 50px;
     position: relative;
+    padding: 0 20px;
 }
 
-.projects-header h2 {
-    font-size: 36px;
-    font-weight: 700;
+.projects-header h2, .stats-header h2, .experience-header h2, .contact-header h2 {
     color: #e0e0e0;
     position: relative;
     z-index: 2;
     background-color: #1a1a2e;
-    padding-right: 20px;
+    padding: 0 20px;
+    margin: 0;
 }
 
-.projects-header h2::after {
+.projects-header::before, .stats-header::before, .experience-header::before, .contact-header::before,
+.projects-header::after, .stats-header::after, .experience-header::after, .contact-header::after {
     content: '';
     position: absolute;
-    left: 100%;
     top: 50%;
     transform: translateY(-50%);
-    width: 200px;
     height: 2px;
     background-color: #4a4a6e;
-    margin-left: 10px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
 .view-more {
     color: #00bcd4;
-    text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s;
-}
-
-.view-more:hover {
-    color: #ff9800;
+    position: relative;
+    z-index: 2;
+    background-color: #1a1a2e;
+    padding-left: 20px;
 }
 
 /* Proje Kartları Izgarası */
@@ -192,10 +219,6 @@ h1 {
     padding: 25px;
 }
 
-.tags {
-    margin-bottom: 15px;
-}
-
 .tag {
     display: inline-block;
     background-color: #4a4a6e;
@@ -207,70 +230,7 @@ h1 {
     margin-bottom: 8px;
 }
 
-.project-url {
-    color: #bdbdbd;
-    font-size: 15px;
-    margin-bottom: 10px;
-}
-
-.project-description {
-    color: #bdbdbd;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.btn-project-view {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 2px solid #00bcd4;
-    color: #00bcd4;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-    font-size: 15px;
-    border-radius: 4px;
-}
-
-.btn-project-view:hover {
-    background-color: #00bcd4;
-    color: #1a1a2e;
-}
-
-/* İstatistikler Bölümü */
-.stats-section {
-    padding: 100px 0;
-}
-
-.stats-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.stats-header h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: #e0e0e0;
-    position: relative;
-    z-index: 2;
-    background-color: #1a1a2e;
-    padding-right: 20px;
-}
-
-.stats-header h2::after {
-    content: '';
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
-    height: 2px;
-    background-color: #4a4a6e;
-    margin-left: 10px;
-}
-
+/* İstatistik Kartları */
 .stats-container {
     display: flex;
     justify-content: center;
@@ -293,7 +253,6 @@ h1 {
 }
 
 .stats-card h3 {
-    font-size: 20px;
     color: #bdbdbd;
     margin-bottom: 15px;
     border-bottom: 1px solid #4a4a6e;
@@ -306,48 +265,9 @@ h1 {
     margin: 0;
 }
 
-.stats-card li {
-    font-size: 16px;
-    color: #e0e0e0;
-    margin-bottom: 8px;
-}
-
-/* Deneyim Bölümü */
-.experience-section {
-    padding: 100px 0;
-    position: relative;
-}
-
-.experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.experience-header h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: #e0e0e0;
-    position: relative;
-    z-index: 2;
-    background-color: #1a1a2e;
-    padding-right: 20px;
-}
-
-.experience-header h2::after {
-    content: '';
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 200px;
-    height: 2px;
-    background-color: #4a4a6e;
-    margin-left: 10px;
-}
-
+/* ========================================= */
+/* 5. DENEYİM (EXPERIENCE) - TIMELINE DÜZELTME */
+/* ========================================= */
 .timeline-container {
     position: relative;
     max-width: 800px;
@@ -355,6 +275,7 @@ h1 {
     padding: 40px 0;
 }
 
+/* Dikey Çizgi */
 .timeline-container::before {
     content: '';
     position: absolute;
@@ -362,7 +283,7 @@ h1 {
     background-color: #4a4a6e;
     top: 0;
     bottom: 0;
-    left: 150px;
+    left: 150px; /* Çizginin masaüstü konumu */
     margin-left: -1px;
     z-index: 1;
 }
@@ -373,21 +294,22 @@ h1 {
     text-align: right;
     width: 150px;
     padding-right: 20px;
-    position: absolute;
+    position: absolute; /* Masaüstünde konumlandırma */
     top: 20px;
     left: 0;
+    z-index: 2;
 }
 
 .timeline-item {
     position: relative;
-    left: 150px;
+    left: 150px; /* Çizginin sağında başlar */
     padding: 10px 40px;
-    background-color: inherit;
-    width: 100%;
+    width: calc(100% - 150px); /* Kalan alanı kullanır */
 }
 
+/* Mobil için Gizlenen Nokta, Mobil CSS'te görünecek */
 .timeline-dot {
-    display: none;
+    display: none; 
 }
 
 .timeline-content {
@@ -405,88 +327,13 @@ h1 {
     margin-bottom: 10px;
 }
 
-.timeline-content h3 {
-    font-size: 20px;
-    color: #e0e0e0;
-    margin: 0;
-}
-
-.experience-date {
-    font-size: 14px;
-    color: #bdbdbd;
-}
-
-.company {
-    font-size: 15px;
-    color: #bdbdbd;
-    margin-top: 5px;
-}
-
-.description {
-    font-size: 15px;
-    color: #9e9e9e;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
 .tags {
     margin-top: 15px;
 }
 
-.tag {
-    display: inline-block;
-    background-color: #4a4a6e;
-    color: #e0e0e0;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 13px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-}
-
-/* İletişim Bölümü */
-.contact-section {
-    padding: 100px 0;
-    text-align: center;
-}
-
-.contact-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.contact-header h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: #e0e0e0;
-    z-index: 2;
-    background-color: #1a1a2e;
-    padding: 0 20px;
-}
-
-.contact-header h2::before,
-.contact-header h2::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 2px;
-    background-color: #4a4a6e;
-}
-
-.contact-header h2::before {
-    left: 0;
-    width: calc(50% - 100px);
-}
-
-.contact-header h2::after {
-    right: 0;
-    width: calc(50% - 100px);
-}
-
+/* ========================================= */
+/* 6. İLETİŞİM (CONTACT) */
+/* ========================================= */
 .contact-content-wrapper {
     display: flex;
     flex-direction: column;
@@ -494,16 +341,6 @@ h1 {
     gap: 30px;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.contact-text {
-    text-align: center;
-}
-
-.contact-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #bdbdbd;
 }
 
 .social-links-box {
@@ -514,141 +351,160 @@ h1 {
     width: 300px;
 }
 
-.social-links-box h3 {
-    font-size: 18px;
-    color: #bdbdbd;
-    margin-bottom: 15px;
-}
-
 .social-links {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.social-links li {
-    margin-bottom: 10px;
-}
-
 .social-links a {
     color: #00bcd4;
-    text-decoration: none;
-    transition: color 0.3s;
     font-size: 16px;
 }
 
-.social-links a:hover {
-    color: #ff9800;
-}
-
-.social-links a i {
-    margin-right: 10px;
-    width: 20px;
-    text-align: center;
-}
-
+/* ========================================= */
+/* 7. FOOTER */
+/* ========================================= */
 footer {
     text-align: center;
     padding: 20px;
     border-top: 1px solid #4a4a6e;
     color: #bdbdbd;
-
-/* ------------------------------------------- */
-/* 1. EVRENSEL UYUMLULUK KURALLARI (MOBİL TAŞMAYI ÖNLER) */
-/* ------------------------------------------- */
-
-/* Tüm resimlerin ebeveyn kutularından taşmasını engeller */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Yatay kaydırmayı engeller (taşan öğeleri gizler) */
-body {
-    overflow-x: hidden; 
 }
 
 
-/* ------------------------------------------- */
-/* 2. SABİT NAVİGASYON (HEADER) KURALLARI */
-/* ------------------------------------------- */
+/* ========================================= */
+/* 8. MOBİL UYUMLULUK (MEDIA QUERIES) */
+/* ========================================= */
 
-/* Daha önce konuştuğumuz sabit menü kuralları: */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000; 
-    background-color: #1a1a2e; /* Arka plan renginizi buraya yazın */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Opsiyonel: Hafif bir gölge ekler */
-}
-
-
-/* ------------------------------------------- */
-/* 3. MOBİL UYUMLULUK (MEDIA QUERY) KURALLARI */
-/* ------------------------------------------- */
-
-/* Ekran boyutu 768px veya daha az olduğunda uygulanacak stiller */
 @media (max-width: 768px) {
 
-    /* Ana Konteyner ve Kenar Boşlukları */
+    /* Genel Konumlandırma */
     .container {
         padding: 0 15px;
     }
+    
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
 
-    /* Navigasyon Çubuğu (Menüyü dikey hizala) */
+    /* Navigasyon - Alt Alta Sırala */
     .navbar {
         flex-direction: column; 
         align-items: flex-start;
         padding: 15px 10px;
     }
 
-    /* Navigasyon Linkleri */
     .navbar nav {
         margin-top: 15px;
-        display: flex;
         flex-wrap: wrap; 
+        width: 100%; 
         justify-content: center;
-        width: 100%; /* Mobil cihazda linklerin alt alta sığmasını sağlar */
+    }
+    
+    nav a {
+        margin: 5px 10px;
+    }
+    .lang-toggle {
+        margin-left: 10px;
     }
 
-    /* Ana Bölüm (Hero Section) - Dikey Sıralama */
+    /* Hero Section - Dikey Sıralama */
     .hero-section {
         flex-direction: column; 
         text-align: center;
+        padding-top: 50px;
     }
 
-    /* Resim (content-right) ve Metin (content-left) Kutularını Ayarlama */
-    .content-left,
-    .content-right {
-        width: 100%; /* Tam genişlik kullan */
-        padding: 0 10px;
-        box-sizing: border-box; /* Padding'in kutu genişliğini bozmasını engeller */
+    .content-left {
+        padding-right: 0;
+        margin-bottom: 20px;
     }
-
-    /* Resim Kutusu: Resmi en üste taşır */
+    
+    /* Resim Kutusu: Resmi en üste taşı */
     .content-right {
         order: -1; 
         margin-bottom: 25px;
-    }
-
-    /* Proje ve İstatistik Izgaraları - Tek Sütuna Düşürme */
-    .project-grid,
-    .stats-container {
-        grid-template-columns: 1fr; /* Tek sütun */
-        gap: 20px;
-        display: block; /* Izgaradan daha güvenli olan blok düzenine geçiş */
-    }
-
-    /* Tek Tek Kartlar */
-    .stats-card,
-    .project-card {
-        width: 100%; /* Tam genişlik kullan */
-        margin-bottom: 20px; /* Aralarında boşluk bırak */
+        text-align: center;
     }
     
-    /* Zaman Çizelgesi (Experience) düzenlemesi */
+    .content-right img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    /* Proje ve İstatistik Izgaraları - Tek Sütuna Düşürme */
+    .project-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .stats-container {
+        flex-direction: column; 
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .stats-card {
+        width: 100%;
+    }
+    
+    /* DENEYİM (EXPERIENCE) ZAMAN ÇİZELGESİ MOBİL DÜZELTMESİ */
     .timeline-container {
-        padding-left: 0;
+        padding-left: 0; /* İçeriğin sola kaymasını sağlar */
         padding-right: 0;
+        padding-top: 0;
+    }
+    
+    /* Dikey Çizgiyi Sola Taşı ve Yıl Alanını Kaldır */
+    .timeline-container::before {
+        left: 10px; 
+    }
+    
+    .timeline-year {
+        display: none; /* Mobil'de yılı içerik kutusuna taşıdık */
+    }
+    
+    .timeline-item {
+        left: 0; 
+        width: 100%; 
+        padding: 10px 10px 20px 30px; /* Çizgi ve nokta için boşluk */
+    }
+    
+    /* Zaman Çizelgesi Noktasını Göster */
+    .timeline-dot {
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: 5px; /* Çizgi ile hizala */
+        top: 35px;
+        background-color: #00bcd4;
+        border-radius: 50%;
+        z-index: 2;
+    }
+    
+    .experience-info {
+        flex-direction: column; /* Tarih ve Başlığı alt alta getir */
+        align-items: flex-start;
+    }
+
+    .experience-date {
+        margin-top: 5px;
+    }
+
+    /* İletişim Bölümü */
+    .contact-content-wrapper {
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .contact-text {
+        text-align: left;
+    }
+    
+    .social-links-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
     }
 }
