@@ -551,4 +551,55 @@ footer {
     padding: 20px;
     border-top: 1px solid #4a4a6e;
     color: #bdbdbd;
+
+/*
+ * MOBILE UYUMLULUK (MEDIA QUERIES)
+ * 768 pikselden küçük ekranlar için kurallar (çoğu tablet ve tüm telefonlar)
+ */
+
+@media (max-width: 768px) {
+
+    /* Ana Konteynerin Kenar Boşluklarını Azaltma */
+    .container {
+        padding: 0 15px; /* Yatay kenar boşluğunu küçült */
+    }
+
+    /* Navigasyon Çubuğu (Navbar) */
+    .navbar {
+        padding: 15px 10px; /* Kenar boşluklarını küçült */
+        flex-direction: column; /* Öğeleri alt alta sırala */
+        align-items: flex-start;
+    }
+    
+    /* Navigasyon Linklerini Düzenleme */
+    .navbar nav {
+        margin-top: 10px;
+        flex-wrap: wrap; /* Linkler sığmazsa alt satıra geçsin */
+    }
+
+    /* Ana Bölüm (Hero Section) */
+    .hero-section {
+        flex-direction: column; /* Sol ve Sağ içeriği alt alta sırala */
+        text-align: center;
+    }
+
+    /* Sağdaki Resim Alanı */
+    .content-right {
+        order: -1; /* Resmi içeriğin üstüne taşı */
+        margin-bottom: 20px;
+        max-width: 80%; /* Resmin ekrana sığmasını sağla */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Proje Kartları (Alt alta sırala) */
+    .project-grid {
+        grid-template-columns: 1fr; /* Tek sütuna düşür */
+        gap: 20px;
+    }
+
+    /* İstatistik Kartları */
+    .stats-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Daha esnek sütun yapısı */
+    }
 }
