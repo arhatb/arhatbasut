@@ -1,3 +1,4 @@
+
 /* Temel Ayarlar ve Yazı Tipleri */
 *,
 *::before,
@@ -552,54 +553,102 @@ footer {
     border-top: 1px solid #4a4a6e;
     color: #bdbdbd;
 
-/*
- * MOBILE UYUMLULUK (MEDIA QUERIES)
- * 768 pikselden küçük ekranlar için kurallar (çoğu tablet ve tüm telefonlar)
- */
+/* ------------------------------------------- */
+/* 1. EVRENSEL UYUMLULUK KURALLARI (MOBİL TAŞMAYI ÖNLER) */
+/* ------------------------------------------- */
 
+/* Tüm resimlerin ebeveyn kutularından taşmasını engeller */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Yatay kaydırmayı engeller (taşan öğeleri gizler) */
+body {
+    overflow-x: hidden; 
+}
+
+
+/* ------------------------------------------- */
+/* 2. SABİT NAVİGASYON (HEADER) KURALLARI */
+/* ------------------------------------------- */
+
+/* Daha önce konuştuğumuz sabit menü kuralları: */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+    background-color: #1a1a2e; /* Arka plan renginizi buraya yazın */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Opsiyonel: Hafif bir gölge ekler */
+}
+
+
+/* ------------------------------------------- */
+/* 3. MOBİL UYUMLULUK (MEDIA QUERY) KURALLARI */
+/* ------------------------------------------- */
+
+/* Ekran boyutu 768px veya daha az olduğunda uygulanacak stiller */
 @media (max-width: 768px) {
 
-    /* Ana Konteynerin Kenar Boşluklarını Azaltma */
+    /* Ana Konteyner ve Kenar Boşlukları */
     .container {
-        padding: 0 15px; /* Yatay kenar boşluğunu küçült */
+        padding: 0 15px;
     }
 
-    /* Navigasyon Çubuğu (Navbar) */
+    /* Navigasyon Çubuğu (Menüyü dikey hizala) */
     .navbar {
-        padding: 15px 10px; /* Kenar boşluklarını küçült */
-        flex-direction: column; /* Öğeleri alt alta sırala */
+        flex-direction: column; 
         align-items: flex-start;
-    }
-    
-    /* Navigasyon Linklerini Düzenleme */
-    .navbar nav {
-        margin-top: 10px;
-        flex-wrap: wrap; /* Linkler sığmazsa alt satıra geçsin */
+        padding: 15px 10px;
     }
 
-    /* Ana Bölüm (Hero Section) */
+    /* Navigasyon Linkleri */
+    .navbar nav {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        width: 100%; /* Mobil cihazda linklerin alt alta sığmasını sağlar */
+    }
+
+    /* Ana Bölüm (Hero Section) - Dikey Sıralama */
     .hero-section {
-        flex-direction: column; /* Sol ve Sağ içeriği alt alta sırala */
+        flex-direction: column; 
         text-align: center;
     }
 
-    /* Sağdaki Resim Alanı */
+    /* Resim (content-right) ve Metin (content-left) Kutularını Ayarlama */
+    .content-left,
     .content-right {
-        order: -1; /* Resmi içeriğin üstüne taşı */
-        margin-bottom: 20px;
-        max-width: 80%; /* Resmin ekrana sığmasını sağla */
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%; /* Tam genişlik kullan */
+        padding: 0 10px;
+        box-sizing: border-box; /* Padding'in kutu genişliğini bozmasını engeller */
     }
 
-    /* Proje Kartları (Alt alta sırala) */
-    .project-grid {
-        grid-template-columns: 1fr; /* Tek sütuna düşür */
-        gap: 20px;
+    /* Resim Kutusu: Resmi en üste taşır */
+    .content-right {
+        order: -1; 
+        margin-bottom: 25px;
     }
 
-    /* İstatistik Kartları */
+    /* Proje ve İstatistik Izgaraları - Tek Sütuna Düşürme */
+    .project-grid,
     .stats-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Daha esnek sütun yapısı */
+        grid-template-columns: 1fr; /* Tek sütun */
+        gap: 20px;
+        display: block; /* Izgaradan daha güvenli olan blok düzenine geçiş */
+    }
+
+    /* Tek Tek Kartlar */
+    .stats-card,
+    .project-card {
+        width: 100%; /* Tam genişlik kullan */
+        margin-bottom: 20px; /* Aralarında boşluk bırak */
+    }
+    
+    /* Zaman Çizelgesi (Experience) düzenlemesi */
+    .timeline-container {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
