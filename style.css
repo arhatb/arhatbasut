@@ -214,6 +214,10 @@ nav a:hover {
 .blue-bg { background-color: #007bff; }
 .green-bg { background-color: #28a745; }
 .orange-bg { background-color: #fd7e14; }
+.purple-bg { background-color: #6f42c1; }
+.red-bg { background-color: #dc3545; }
+.teal-bg { background-color: #20c997; }
+
 
 .project-details {
     padding: 25px;
@@ -507,4 +511,7 @@ footer {
         max-width: 100%;
         padding: 20px;
     }
+}
+.hidden-project {
+    display: none !important;
 }
