@@ -43,8 +43,14 @@
         <section id="projects" class="projects-section">
             <div class="projects-header">
                 <h2>#my_projects</h2>
-                <a href="#" class="view-more">View more →</a>
+                <a href="javascript:void(0)" id="view-more-btn" class="view-more">
+    View more →
+</a>
+
+
             </div>
+            <div class="project-card extra-project" style="display: none;">
+   </div>
             <div class="project-grid">
                 
                 <div class="project-card">
@@ -57,8 +63,8 @@
                             <span class="tag">#frontend </span>
                             <span class="tag">#ip-lookup</span>
                         </div>
-                        <p class="project-url">arhatb.github.io/HackDash/</p>
-                        <p class="project-description">ullanıcının IP adresi, ülke, şehir, internet servis sağlayıcısı, sistem saati ve tarayıcı bilgilerini sahte komutlarla listeler.</p>
+                        <p class="project-url">HackDash{}</p>
+                        <p class="project-description">It lists the user's IP address, country, city, internet service provider, system time, and browser information using fake commands.</p>
                         <a href="https://arhatb.github.io/HackDash/" target="_blank" class="btn-project-view">View Project</a>
                     </div>
                 </div>
@@ -74,7 +80,7 @@
                             <span class="tag">#nodejs</span>
                         </div>
                         <p class="project-url">url_shortener</p>
-                        <p class="project-description">Kendi URL kısaltıcını yapmana olanak tanıyan demo</p>
+                        <p class="project-description">A demo that lets you create your own URL shortener</p>
                         <a href="https://arhatb.github.io/LinkShortener/" target="_blank" class="btn-project-view">View Project</a>
                     </div>
                 </div>
@@ -94,6 +100,85 @@
                         <a href="#" target="_blank" class="btn-project-view">View Project</a>
                     </div>
                 </div>
+
+                <div class="project-card hidden-project">
+    <div class="project-title-box purple-bg">
+        <h3>Crypto Analysis</h3>
+    </div>
+    <div class="project-details">
+        <div class="tags">
+            <span class="tag">#javascript</span>
+            <span class="tag">#frontend</span>
+            <span class="tag">#crypto</span>
+        </div>
+        <p class="project-url">Crypto</p>
+        <p class="project-description">
+            a simple crypto tracking app
+        </p>
+        <a href="https://arhatb.github.io/kripto/" target="_blank" class="btn-project-view">
+            View Project
+        </a>
+    </div>
+</div>
+
+<div class="project-card hidden-project">
+    <div class="project-title-box red-bg">
+        <h3>TryHackMe</h3>
+    </div>
+    <div class="project-details">
+        <div class="tags">
+            <span class="tag">#cybersecurity</span>
+            <span class="tag">#frontend</span>
+            <span class="tag">#websecurity</span>
+        </div>
+        <p class="project-url">TryHackMe</p>
+        <p class="project-description">
+            A minimal terminal where users can type commands 
+        </p>
+        <a href="https://arhatb.github.io/TryHackMe/" target="_blank" class="btn-project-view">
+            View Project
+        </a>
+    </div>
+</div>
+
+<div class="project-card hidden-project">
+    <div class="project-title-box teal-bg">
+        <h3>StudyPal</h3>
+    </div>
+    <div class="project-details">
+        <div class="tags">
+            <span class="tag">#javascript</span>
+            <span class="tag">#frontend</span>
+            <span class="tag">#productivity</span>
+        </div>
+        <p class="project-url">StudyPal</p>
+        <p class="project-description">
+            StudyPal is a simple web-based study timer app that helps users track their study sessions with start/pause/reset controls and visualize elapsed time for focused work. It’s built with clean HTML, CSS, and JavaScript to enhance productivity and time management habits. 
+        </p>
+        <a href="https://arhatb.github.io/StudyPal/" target="_blank" class="btn-project-view">
+            View Project
+        </a>
+    </div>
+</div>
+
+<div class="project-card hidden-project">
+    <div class="project-title-box blue-bg">
+        <h3>JSLogin</h3>
+    </div>
+    <div class="project-details">
+        <div class="tags">
+            <span class="tag">#javascript</span>
+            <span class="tag">#frontend</span>
+            <span class="tag">#auth</span>
+        </div>
+        <p class="project-url">Js Login</p>
+        <p class="project-description">
+           JsLogin is a simple and secure JavaScript-based login interface that validates user credentials on the client side, offering basic authentication logic and a clean user experience without backend integration.</p>
+        <a href="https://arhatb.github.io/JsLogin/" target="_blank" class="btn-project-view">
+            View Project
+        </a>
+    </div>
+</div>
             </div>
         </section>
 
@@ -127,6 +212,7 @@
                         <li>VSCode</li>
                         <li>Git</li>
                         <li>Brave Browser</li>
+                        <li>Code::Blocks</li>
                     </ul>
                 </div>
                 <div class="stats-card">
@@ -257,10 +343,24 @@
         <p>ARHAT © 2024</p>
         <p>Built with <span style="color: #e25555;">❤</span> and some code.</p>
     </footer>
+    <script>
+document.getElementById("view-more-btn").onclick = function () {
+    const hiddenProjects = document.querySelectorAll(".hidden-project");
+
+    hiddenProjects.forEach(p => {
+        p.style.display = "block";
+        p.classList.remove("hidden-project");
+    });
+
+    this.remove();
+};
+</script>
+
+
+
 </body>
 
 </html>
-
 
 
 
