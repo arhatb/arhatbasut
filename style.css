@@ -403,6 +403,7 @@ footer {
     }
 
     .navbar nav {
+        display: flex;
         margin-top: 15px;
         flex-wrap: wrap; 
         width: 100%; 
@@ -526,6 +527,12 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
 }
+.playlist-box iframe {
+    max-width: 100%;
+    height: 300px;
+}
+
+
 
 
 
