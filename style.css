@@ -36,10 +36,12 @@ img {
 
 /* Ana İçerik Konteyneri */
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
+
 
 /* Başlıklar */
 h1 { font-size: 48px; font-weight: 700; line-height: 1.2; }
@@ -524,6 +526,7 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
 }
+
 
 
 
